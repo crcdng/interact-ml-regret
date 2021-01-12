@@ -14,10 +14,12 @@ udpPort.open();
 const controller = Leap.loop(function(frame){
     if (frame.hands.length > 0) {
         const hand = frame.hands[0];
-        const height = hand.palmPosition[1];
-        const roll = hand.roll();
-        const pitch = hand.pitch();
+        const height = hand.palmPosition[1]; // 50 .. 450 [mm]
+        const pitch = hand.pitch();     // -PI .. PI
+        const roll = hand.roll();       // -PI .. PI
 
+        
+        
         const msg = {
             address: "/leap",
             args: [
@@ -27,11 +29,11 @@ const controller = Leap.loop(function(frame){
                 },
                 {
                     type: "f",
-                    value: roll
+                    value: pitch
                 },
                 {
                     type: "f",
-                    value: pitch
+                    value: roll
                 }
             ]
         };

@@ -10,14 +10,16 @@ One of the strengths of Wekinator is that it can be connected to almost everythi
 
 Now surely some people would like to make similar things in [Unity](https://unity.com/). Enter [InteractML](https://github.com/Interactml/iml-unity) which is built on a C++ machine learning library called [RapidLib](https://github.com/mzed/ofxRapidLib). InteractML uses the same approach as Wekinator and it works with Unity game objects. 
 
-### Regression  
+### Overview
+
+![Schematic Overview](Assets/Docs/InteractMLRegret.jpg)
 
 In this repo I provide an example that 
 
 ### DONE 
 
 * uses the Leap Motion Controller to track hand movement
-* gets Leap motion data (hand distance, roll and pitch) via [leapjs](https://www.npmjs.com/package/leapjs/)
+* gets Leap motion data (hand distance, pitch and roll) via [leapjs](https://www.npmjs.com/package/leapjs/)
 * sends the data over via [OSC](https://www.npmjs.com/package/osc/)
 * receives the the data via [Chuck/Chunity](http://chuck.stanford.edu/chunity/)
 
@@ -27,21 +29,21 @@ In this repo I provide an example that
 * learns a movements in InteractML as regression parameteres
 * plays the output of the ML pipeline back to Chunity for audio synthesis, adapting a sound parameters in spooky ways, not unlike a [Theremin](https://en.wikipedia.org/wiki/Theremin). 
 
-![Regression Graph](/Assets/Docs/InteractMLGraph.png)
+![Regression Graph](Assets/Docs/InteractMLGraph.png)
 
 InteractML comes with a [Wiki](https://github.com/Interactml/iml-unity/wiki) that explains the individual steps to get the system up and running and how to use it in detail. I am referencing it below. 
 
 #### To set up Leap Motion and the OSC sender
 
-1. Install Leap Motion drivers v2
+1. Install Leap Motion drivers v2: https://developer.leapmotion.com/sdk-leap-motion-controller/
 2. Install leapjs https://www.npmjs.com/package/leapjs/ and osc https://www.npmjs.com/package/osc/ via npm
 3. run leap.js 
 
 #### To set up the Unity parts 
 
 1. Install Chunity from the asset store: https://assetstore.unity.com/packages/tools/audio/chunity-chuck-for-unity-118383
-2. Set up Chunity as described in the Set Up Manual
-3. I create a `StreamingAssets` folder and put the Chuck File there
+2. Set up Chunity as described in the manual
+3. Create a `StreamingAssets` folder and put your Chuck file there
 
 #### To set up the ML system (InteractML Wiki Step 1-5)
 

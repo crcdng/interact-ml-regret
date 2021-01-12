@@ -16,9 +16,9 @@ while( true )
     oscIn => now;
     while (oscIn.recv(oscMsg)) {
         oscMsg.getFloat(0) => float height;
-        oscMsg.getFloat(1) => float roll;
         oscMsg.getFloat(1) => float pitch;
-        chout <= height <= "," <= roll <= "," <= pitch <= IO.newline();
+        oscMsg.getFloat(2) => float roll;
+        chout <= height <= "," <= pitch <= "," <= roll <= IO.newline();
     }
     
     
